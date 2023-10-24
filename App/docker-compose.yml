@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  app:
+    image: resrrdttrt/ai-service:lastest
+    ports:
+      - "8001:8001"
+    restart: unless-stopped
