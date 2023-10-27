@@ -5,25 +5,21 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import LabelEncoder
 
 
-
-
-
-
 # Step 1: Load the dataset
 data = pd.read_csv('APA-DDoS-Dataset.csv')
 
 # Step 2: Data Cleaning and Preprocessing
 # Drop any rows with missing values
 data = data.dropna()
-print(data['Label'].unique)
+# print(data['label'].unique)
 # Convert non-numeric columns to numeric using LabelEncoder
 label_encoder = LabelEncoder()
-data['Label'] = label_encoder.fit_transform(data['Label'])
+data['label'] = label_encoder.fit_transform(data['label'])
 
 # Drop the 'time' column
-data = data.drop('frame.time', axis=1)
-data = data.drop('ip.dst', axis=1)
-data = data.drop('ip.src', axis=1)
+data = data.drop('frame_time', axis=1)
+data = data.drop('ip_dst', axis=1)
+data = data.drop('ip_src', axis=1)
 
 
 # Drop any other columns that are not suitable for KNN classification (if needed)
@@ -34,8 +30,8 @@ data = data.drop('ip.src', axis=1)
 
 # Step 4: K-Nearest Neighbors (KNN) Classification
 # Separate features and target variable
-X = data.drop('Label', axis=1)
-y = data['Label']
+X = data.drop('label', axis=1)
+y = data['label']
 
 # Split the dataset into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)

@@ -103,25 +103,25 @@ def DDoSHandler():
 
     # Ensure that the required fields are present in the JSON
     required_fields = [
-        "tcp.srcport",
-        "tcp.dstport",
-        "ip.proto",
-        "frame.len",
-        "tcp.flags.syn",
-        "tcp.flags.reset",
-        "tcp.flags.push",
-        "tcp.flags.ack",
-        "ip.flags.mf",
-        "ip.flags.df",
-        "ip.flags.rb",
-        "tcp.seq",
-        "tcp.ack",
-        "Packets",
-        "Bytes",
-        "Tx Packets",
-        "Tx Bytes",
-        "Rx Packets",
-        "Rx Bytes"
+        "tcp_srcport",
+        "tcp_dstport",
+        "ip_proto",
+        "frame_len",
+        "tcp_flags_syn",
+        "tcp_flags_reset",
+        "tcp_flags_push",
+        "tcp_flags_ack",
+        "ip_flags_mf",
+        "ip_flags_df",
+        "ip_flags_rb",
+        "tcp_seq",
+        "tcp_ack",
+        "packets",
+        "bytes",
+        "tx_packets",
+        "tx_bytes",
+        "rx_packets",
+        "rx_bytes"
     ]
     if not all(field in data for field in required_fields):
         return jsonify({"error": "Missing required fields"}), 400
